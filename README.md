@@ -18,7 +18,7 @@ A 'Dispatchr' with:
 
 - Conditions not ''.
 - Action set to 'Trigger a webhook'.
-  - Callback URL: https://*fqdn*/osid/api/0.0.1/instance/addInfo
+  - Callback URL: https://*fqdn*/osid/api/*OSID API version*/instance/addInfo
   - Request type: 'POST'
   - Requires Authentication (API Key): the value that translates to the base64 field value 'authorization' found at 'puppet-freshdesk/osid-config/*environment*.js'. See puppet-freshdesk for more information.
   - Encoding: JSON
@@ -35,7 +35,7 @@ A 'Observer' with:
 - Trigger when 'Note is added', type: 'Public', events performed by 'anyone'.
 - 'Tickets with these properties' set to a blank condition (no condition).
 - Action set to 'Trigger a webhook'
-  - Callback URL: https://*fqdn*/osid/api/0.0.1/instance/addInfo
+  - Callback URL: https://*fqdn*/osid/api/*OSID API version*/instance/addInfo
   - Request type: 'POST'
   - Requires Authentication (API Key): the value that translates to the base64 field value 'authorization' found at 'puppet-freshdesk/osid-config/*environment*.js'. See puppet-freshdesk for more information.
   - Encoding: JSON

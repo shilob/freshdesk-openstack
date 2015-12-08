@@ -37,7 +37,7 @@ module.exports = {
     isNotePrivate:true,
     updateNote: true,
   },
-  apiVersion:'0.0.1',
+  apiVersion:'1.0.0',
   error: {
     noAuth: {
       code: 403,
