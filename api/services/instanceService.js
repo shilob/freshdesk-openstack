@@ -62,10 +62,10 @@ module.exports = {
     var data = {};
     var cbExit = function(error, stdout, stderr) {
       data.err = stderr;
-      if (error && data.out != null) {
+      if (error) {
         data.error = error;
       } 
-      data.out = data.out + stdout;
+      data.out = stdout;
       cb(data);
     };
     cmdService.runCmd('showInstanceInfo', [{fieldRegex:/<instanceId>/g, fieldValue:instanceInfo.instanceId}],cbExit);

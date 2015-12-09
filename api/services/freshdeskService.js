@@ -21,6 +21,7 @@ module.exports = {
       baseUrl: sails.config.freshdesk.protocol + sails.config.freshdesk.hostname,
       method: sails.config.freshdesk.noteApiMethod,
       json:true,
+      proxy: sails.config.httpProxy,
       body: reqData,
       auth: {
         username: sails.config.freshdesk.username,
@@ -32,6 +33,12 @@ module.exports = {
       if (!error && response.statusCode == 200) {
         sails.log.debug(body);
         if (cb) cb(true, body);
+      } else {
+        sails.log.error("Error updating Freshdesk note, using request:");
+        sails.log.error(options);
+        sails.log.error("Actual Error message is:");
+        sails.log.error(error);
+        if (cb) cb(false);
       }
     });
   }

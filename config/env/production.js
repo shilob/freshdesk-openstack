@@ -27,6 +27,7 @@ module.exports = {
   instanceDelim:"\n",
   stripTable: true,
   debugHttp: false,
+  httpProxy: '',
   freshdesk: {
     protocol: 'https://',
     hostname: 'support.nectar.org.au',
