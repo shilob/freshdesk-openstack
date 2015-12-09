@@ -16,6 +16,7 @@ module.exports = {
     var instanceIdsSource = srcText.match(/([a-zA-Z0-9]{8})\-([a-zA-Z0-9]{4})\-([a-zA-Z0-9]{4})\-([a-zA-Z0-9]{4})\-([a-zA-Z0-9]{12})/g);
     var instanceIds = [];
     if (instanceIdsSource != null) {
+      instanceIdsSource = instanceIdsSource.unique();
       for (var x=0; x<instanceIdsSource.length; x++) {
         instanceIds.push({instanceId: instanceIdsSource[x]});
       }

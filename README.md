@@ -16,13 +16,13 @@ Freshdesk needs to be configured to have the following integrations:
 
 A 'Dispatchr' with:
 
-- Conditions not ''.
+- Conditions "Description" is not "".
 - Action set to 'Trigger a webhook'.
   - Callback URL: https://*fqdn*/osid/api/*OSID API version*/instance/addInfo
   - Request type: 'POST'
   - Requires Authentication (API Key): the value that translates to the base64 field value 'authorization' found at 'puppet-freshdesk/osid-config/*environment*.js'. See puppet-freshdesk for more information.
   - Encoding: JSON
-  - Content: 
+  - Content - Select 'Advanced' and enter the ff.: 
   ```
   {
     "srcText": "{{ticket.description}}",
