@@ -45,7 +45,7 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
-  'post /osid/api/0.0.1/instance/addInfo' : {
+  'post /osid/api/1.0.0/instance/addInfo' : {
     controller: 'InstanceController',
     action: 'addInfo'
   }
