@@ -13,6 +13,7 @@ module.exports = {
     var reqData = {
       helpdesk_note: {
         body:noteText,
+        body_html: '<div>' + noteText.replace(/(?:\r\n|\r|\n)/g, '<br />') + '</div>',
         private:sails.config.freshdesk.isNotePrivate
       }
     };
@@ -31,7 +32,7 @@ module.exports = {
     
     request(options, function (error, response, body) {
       if (!error && response.statusCode == 200) {
-        sails.log.debug(body);
+        if (sails.config.debugHttp) sails.log.debug(body);
         if (cb) cb(true, body);
       } else {
         sails.log.error("Error updating Freshdesk note, using request:");

@@ -10,6 +10,13 @@ Retrieves compute instance data from Openstack using an IP address and pushes th
 
 The application is written in SailsJS (NodeJS), and requires the Python Openstack client, and valid Openstack credentials.
 
+Tested with: 
+
+Node 0.12.7
+Sails 0.11.3
+Openstack (client) 1.6.0
+Nova (client) 2.26.0
+
 ## Configuration
 
 Freshdesk needs to be configured to have the following integrations:

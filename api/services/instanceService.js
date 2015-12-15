@@ -18,7 +18,7 @@ module.exports = {
     if (instanceIdsSource != null) {
       instanceIdsSource = instanceIdsSource.unique();
       for (var x=0; x<instanceIdsSource.length; x++) {
-        instanceIds.push({instanceId: instanceIdsSource[x]});
+        instanceIds.push({instanceId: instanceIdsSource[x], key:'instanceId'});
       }
     }
     var instanceCnt = 0; // we are using an instance count instead comparing the ips and instanceids since the ip may not match
@@ -40,7 +40,7 @@ module.exports = {
         for (var i=0; i<outputJson.length; i++) {
           var isMatch = outputJson[i][sails.config.ipField].indexOf(ip) != -1;
           if (isMatch) {
-            instanceIds.push({instanceId:outputJson[i][sails.config.idField]});
+            instanceIds.push({instanceId:outputJson[i][sails.config.idField], key:ip});
           }
         }
         trackingCb();
@@ -66,7 +66,7 @@ module.exports = {
       if (error) {
         data.error = error;
       } 
-      data.out = stdout;
+      data.out = "Key used for extraction:" + (instanceInfo.key == 'instanceId' ? instanceInfo.instanceId : instanceInfo.key ) + "\n\n" + stdout;
       cb(data);
     };
     cmdService.runCmd('showInstanceInfo', [{fieldRegex:/<instanceId>/g, fieldValue:instanceInfo.instanceId}],cbExit);
